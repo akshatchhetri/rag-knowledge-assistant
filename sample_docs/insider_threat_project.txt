@@ -1,0 +1,15 @@
+Layered Insider Threat Detection System
+
+This project is a two-layer, adversarial-aware insider threat detection system built with Python, Scikit-learn, FastAPI, and React.
+
+Architecture:
+The system has two layers. The first is a baseline User and Entity Behavior Analytics (UEBA) layer that combines three unsupervised models: Isolation Forest, One-Class SVM, and a PCA Autoencoder. Each model scores user behavior independently, and their outputs are merged using score fusion into a single risk score. The second layer is a meta-detection layer designed specifically to catch adversarial evasion. This layer performs temporal analysis to identify patterns where a malicious insider is deliberately trying to stay under the radar of the baseline models.
+
+Adversarial testing:
+To validate robustness, five adversarial evasion strategies were simulated against the system: Activity Splitting (breaking one large suspicious action into many small ones), Gradual Drift (slowly shifting behavior over time to avoid sudden-change detectors), Threshold Hugging (staying just below alert thresholds), Temporal Obfuscation (spreading actions across time to avoid burst detection), and Account Switching (using multiple accounts to distribute suspicious activity).
+
+Results:
+The final system achieved a ROC-AUC of 0.94. Recall improved from 0.17 in the baseline model to 0.77 after adding the meta-detection layer and score fusion. This is a large improvement, since insider threat detection is a highly imbalanced problem where most behavior is normal and threats are rare.
+
+Deployment:
+The system is deployed with a FastAPI backend serving the detection models, and a React-based Security Operations Center (SOC) dashboard for real-time alert management, allowing analysts to review flagged users and investigate evidence.

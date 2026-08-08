@@ -1,0 +1,12 @@
+Work Sync
+
+Work Sync is a mobile task management application built with Flutter (Dart) and Firebase.
+
+Features:
+The app supports task assignment and real-time tracking between team members. It uses Firebase Authentication for secure login and Firestore as a real-time database, so changes to tasks sync instantly across devices without manual refresh.
+
+Design goals:
+The project was built with an emphasis on clean, maintainable code using a modular architecture. Database handling was optimized to reduce unnecessary reads and writes, which improved responsiveness and reduced coordination delays between team members using the app.
+
+Context:
+This project drew on experience from an internship at MTA EMTC in Panchkula, where a similar Flutter and Firebase based task management application was developed and deployed for over 50 internal users, including features like role-based access and real-time chat.
